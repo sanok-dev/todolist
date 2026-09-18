@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client';
-import { createClient } from '@libsql/client';
 import { PrismaLibSQL } from '@prisma/adapter-libsql';
 
 // Next.js特有のエラーを防ぐためのおまじない
@@ -11,11 +10,10 @@ let prisma: PrismaClient;
 
 if (isProduction) {
   // 本番環境（Vercelなど）では Turso に接続する
-  const libsql = createClient({
+  const adapter = new PrismaLibSQL({
     url: process.env.TURSO_DATABASE_URL!,
     authToken: process.env.TURSO_AUTH_TOKEN!,
   });
-  const adapter = new PrismaLibSQL(libsql);
   prisma = globalForPrisma.prisma || new PrismaClient({ adapter });
 } else {
   // 開発環境（手元のパソコン）では dev.db に接続する

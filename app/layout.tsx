@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import HeaderTable from "@/components/headertable";
 
 import "./globals.css";
 
@@ -15,7 +16,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={` h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <title>My Todo App</title>
+      </head>
+      <body className="min-h-full flex flex-col">
+        <HeaderTable />
+        {children}</body>
     </html>
   );
 }
