@@ -1,8 +1,12 @@
+import TodoItems from "@/components/TodoItems";
 
 
 
 export default function AllTodoPage() {
   return (
-    <div>page</div>
+    <>
+    <TodoItems />
+    <div className="mx-auto text-center">all todo page</div>
+    </>
   )
 }
