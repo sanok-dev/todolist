@@ -10,12 +10,12 @@ export default async function DetailPage({
   const resolvedParams = await params;
   return (
     <div className="mx-auto w-full max-w-4xl px-4">
-      <div className="text-2xl font-bold text-center mb-4">
+      <div className="mb-4 text-center text-2xl font-bold">
         {resolvedParams.day} Page
       </div>
       <Link
         href="/"
-        className="text-gray-700 p-2 my-4 bg-gray-400 rounded-lg text-center mx-auto block"
+        className="mx-auto my-4 block rounded-lg bg-gray-400 p-2 text-center text-gray-700"
       >
         Home
       </Link>

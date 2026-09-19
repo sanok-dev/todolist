@@ -1,3 +1,4 @@
+import deleteAction from "@/actions/deleteAction";
 export default function TodoCard({
   id,
   title,
@@ -8,15 +9,16 @@ export default function TodoCard({
   description: string;
 }) {
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 flex justify-between">
-      <div>
+    <div className="flex w-full items-center justify-between gap-4 rounded-lg bg-white p-4 shadow-md">
+      <div className="min-w-0 flex-1">
         <h1 className="text-lg font-semibold">{title}</h1>
         <p className="text-gray-500">{description}</p>
       </div>
-      <form action={`/delete/${id}`}>
+      <form action={deleteAction} className="shrink-0">
+        <input type="hidden" name="id" value={id} />
         <button
           type="submit"
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          className="rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700"
         >
           削除
         </button>

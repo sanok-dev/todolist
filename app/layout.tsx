@@ -19,9 +19,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <title>My Todo App</title>
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col items-center">
         <HeaderTable />
-        {children}</body>
+        {children}
+      </body>
     </html>
   );
 }
