@@ -1,15 +1,17 @@
-
 import prisma from "@/lib/prisma";
 import TodoCard from "./TodoCard";
 export default async function TodoItems() {
-const todos=await prisma.todo.findMany();
-console.log(todos);
+  const todos = await prisma.todo.findMany();
   return (
     <div className="grid grid-cols-1 gap-4">
       {todos.map((todo) => (
-        <TodoCard key={todo.id} title={todo.title} id={todo.id} description={todo.description} />
+        <TodoCard
+          key={todo.id}
+          title={todo.title}
+          id={todo.id}
+          description={todo.description}
+        />
       ))}
-
     </div>
-  )
+  );
 }
